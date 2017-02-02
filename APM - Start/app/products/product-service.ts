@@ -4,7 +4,7 @@ import {IProduct} from './product-interface';
 @Injectable()
 export class ProductService {
 
-	getDate() : IProduct[] {
+	getData() : IProduct[] {
 		return [
 		
 		    {

@@ -39,12 +39,16 @@
                     			[style.width.px] = 'imageWidth'
                     			[title] = 'product.productName'/>
                     	</td>
-                    	<td>{{product.productName | uppercase }}</td>
+                    	<td>
+                            <!-- {{product.productName | uppercase }}  -->
+                            <a [routerLink] = "['/products', product.productId, product.productName]">{{product.productName}}</a>
+                        </td>
                     	<td>{{product.productCode | lowercase }}</td>
                     	<td>{{product.releaseDate}}</td>
                     	<td>{{product.price | currency: 'USD':true}}</td>
-                    	<td>{{product.starRating}}</td>
-
+                    	<td>
+                            <ml-star [rating]= 'product.starRating' (ratingClicked) = 'starRatingClicked($event)'></ml-star>
+                        </td>
                     </tr>
                 </tbody>
             </table>

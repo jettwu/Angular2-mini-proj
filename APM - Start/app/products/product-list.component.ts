@@ -18,7 +18,7 @@ export class ProductComponent implements OnInit{
 		this.showHideImg = !this.showHideImg;
 	}
 
-	filterVal : string = 'cart';
+	filterVal : string = '';
 
 	ngOnInit() : void{
 		console.log('call OnInit()');
@@ -26,8 +26,11 @@ export class ProductComponent implements OnInit{
 
 	products : IProduct[] ;
 	constructor(private _productService : ProductService){
-		this.products = _productService.getDate();
+		this.products = _productService.getData();
 	}
 	
+	starRatingClicked(msg: string) : void{
+		alert(msg);
+	}
 }
 
