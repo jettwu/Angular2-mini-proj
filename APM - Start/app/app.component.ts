@@ -5,11 +5,11 @@ import { Component } from '@angular/core';
 	template:
 	`
     	<div class='navbar navbar-default'>
-    		<ul>
-    			<li>
-    				<a [routerLink]="['/welcome']">welcome</a>
+    		<ul style="list-style-type: none;">
+    			<li style="float:left">
+    				<a [routerLink]="['/welcome']">welcome</a><span>|</span>
     			</li>
-    			<li>
+    			<li style="float:left">
     				<a [routerLink]="['/products']">Products</a>
     			</li>
     		</ul>

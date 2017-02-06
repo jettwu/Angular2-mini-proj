@@ -14,11 +14,11 @@ export class ProductComponent implements OnInit{
 	pageTitle : string = 'Marlabs products';
 	imageWidth : number = 40;
 	showHideImg : boolean = false;
+	errorMessage : string;
+	filterVal : string = '';
 	toggleImg() : void {
 		this.showHideImg = !this.showHideImg;
 	}
-
-	filterVal : string = '';
 
 	ngOnInit() : void{
 		console.log('call OnInit()');
@@ -26,7 +26,14 @@ export class ProductComponent implements OnInit{
 
 	products : IProduct[] ;
 	constructor(private _productService : ProductService){
-		this.products = _productService.getData();
+		// this.products = _productService.getData();
+
+		// _productService.getData()
+		// .then(product_response => this.products = product_response);
+
+		 this._productService.getData()
+                .subscribe(products => this.products = products,
+                           error => this.errorMessage = <any>error);
 	}
 	
 	starRatingClicked(msg: string) : void{

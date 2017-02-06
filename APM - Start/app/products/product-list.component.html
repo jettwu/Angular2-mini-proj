@@ -41,7 +41,7 @@
                     	</td>
                     	<td>
                             <!-- {{product.productName | uppercase }}  -->
-                            <a [routerLink] = "['/products', product.productId, product.productName]">{{product.productName}}</a>
+                            <a [routerLink] = "['/products', product.productId ]">{{product.productName | uppercase}}</a>
                         </td>
                     	<td>{{product.productCode | lowercase }}</td>
                     	<td>{{product.releaseDate}}</td>
@@ -52,6 +52,7 @@
                     </tr>
                 </tbody>
             </table>
+            <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
         </div>
     </div>
 </div>
